@@ -21,12 +21,12 @@ OR
 ### Console APP:
 ```c#
 var bingWallpaper = BingWallpaperInstaller.CreateService();
-var source = await bingWallpaper.GetDailyWallpaperInfoAsync(15);
+var source = bingWallpaper.GetDailyWallpaperInfo(15);
 
 foreach (var imageUrl in source)
 {
 	Console.WriteLine($"Title: {imageUrl.Title}");
-	await bingWallpaper.DownloadAsync(imageUrl.Url!, imageUrl.Title!.Trim(), "png", "D://");
+	bingWallpaper.Download(imageUrl.Url!, imageUrl.Title!.Trim(), "png", "D://");
 }
 ```
 
