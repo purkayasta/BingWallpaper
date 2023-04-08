@@ -16,7 +16,7 @@ if (source == null || !source.Any())
 
 foreach (var imageUrl in source)
 {
-    Console.WriteLine($"Title: {imageUrl.Title} ✅");
+    Console.WriteLine($"Title: {imageUrl!.Title} ✅");
     Console.WriteLine($"Quiz: {imageUrl.Quiz}");
     Console.WriteLine($"Copyright: {imageUrl.CopyRight}");
     Console.WriteLine($"Link: {imageUrl.CopyRightLink}");

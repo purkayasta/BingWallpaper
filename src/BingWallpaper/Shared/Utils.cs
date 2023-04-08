@@ -50,7 +50,7 @@ namespace BingWallpaper.Shared
         /// </summary>
         internal static int TotalDownloadableData = 15;
 
-        internal static string GetProperBingUrl(int index, int download, string locale)
+        internal static string GetProperBingUrl(int index, int download, string? locale)
         {
             return BingWallUrl
                 .Replace(INDEX_STR, index.ToString())
@@ -70,8 +70,11 @@ namespace BingWallpaper.Shared
         internal static int GetRemaining(int totalCount, int maxPerPageCount, int page)
             => totalCount - maxPerPageCount * page;
 
-        internal static string RemoveSpecialCharacters(string str)
+        internal static string RemoveSpecialCharacters(string? str)
         {
+            if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str) || str.Length < 1)
+                return string.Empty;
+
             StringBuilder sb = new();
             foreach (char c in str)
             {
@@ -83,7 +86,7 @@ namespace BingWallpaper.Shared
             return sb.ToString();
         }
 
-        internal static string[] PrepareUrls(int downloadRequest, string locale)
+        internal static string[] PrepareUrls(int downloadRequest, string? locale)
         {
             string[] urlArray = new string[TotalWeek];
 
