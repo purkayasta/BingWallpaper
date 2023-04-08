@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__solution-items__", "__sol
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		LICENSE.txt = LICENSE.txt
+		nuget.md = nuget.md
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -19,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E460363C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingWallpaper.Test.Console", "test\BingWallpaper.Test.Console\BingWallpaper.Test.Console.csproj", "{8EB3805E-946C-4641-A99F-F812EA4EAF38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingWallpaper.Test.WebAPI", "test\BingWallpaper.Test.WebAPI\BingWallpaper.Test.WebAPI.csproj", "{8C9F768F-175F-4F9A-A3D6-C127D4182D76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingWallpaper.Test.WebAPI", "test\BingWallpaper.Test.WebAPI\BingWallpaper.Test.WebAPI.csproj", "{8C9F768F-175F-4F9A-A3D6-C127D4182D76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

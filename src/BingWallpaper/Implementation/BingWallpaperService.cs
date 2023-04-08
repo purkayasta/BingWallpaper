@@ -5,14 +5,14 @@ using BingWallpaper.Shared;
 
 namespace BingWallpaper.Implementation
 {
-    internal class BingWallpaperService : IBingWallpaperService
+    internal sealed class BingWallpaperService : IBingWallpaperService
     {
         private readonly ICustomHttpClient _customHttpClient;
 
         public BingWallpaperService(ICustomHttpClient customHttpClient)
             => _customHttpClient = customHttpClient;
 
-        public async Task<List<BingImageInfo>> GetDailyWallpaperInfoAsync(int downloadRequest, string locale = "en-US")
+        public async Task<List<BingImageInfo>?> GetDailyWallpaperInfoAsync(int downloadRequest, string locale = "en-US")
         {
             if (downloadRequest < 1)
                 throw new Exception(message: "Download Count cannot be less than 1");
@@ -25,7 +25,7 @@ namespace BingWallpaper.Implementation
 
             var urls = Utils.PrepareUrls(downloadRequest, locale);
 
-            var bingImages = new List<BingImageInfo>();
+            var bingImages = Enumerable.Empty<BingImageInfo>().ToList();
 
             foreach (var url in urls)
             {
@@ -38,14 +38,25 @@ namespace BingWallpaper.Implementation
             return bingImages;
         }
 
-        public async Task DownloadAsync(string imageUrl, string imageName, string imageExtension, string localDownloadPath, string folderPrefix = Utils.FolderPrefix)
+        public async Task<bool> DownloadAsync(string imageUrl, string imageName, string imageExtension, string localDownloadPath, string folderPrefix = Utils.FolderPrefix)
         {
-            var directoryInfo = Directory.CreateDirectory(localDownloadPath + "/" + folderPrefix);
-            using var stream = await _customHttpClient.GetStreamAsync(Utils.BaseUrl + imageUrl);
-            string imageFilePath = directoryInfo.FullName + "/" + Utils.RemoveSpecialCharacters(imageName.Trim()) + "." + imageExtension;
-            using var fileStream = File.Create(imageFilePath);
-            await stream.CopyToAsync(fileStream);
-            await Console.Out.WriteLineAsync($"File Downloaded at {imageFilePath}");
+            try
+            {
+                var directoryInfo = Directory.CreateDirectory(localDownloadPath + "/" + folderPrefix);
+                string imageFilePath = directoryInfo.FullName + "/" + Utils.RemoveSpecialCharacters(imageName.Trim()) + "." + imageExtension;
+
+                using var stream = await _customHttpClient.GetStreamAsync(Utils.BaseUrl + imageUrl);
+                using var fileStream = File.Create(imageFilePath);
+                await stream.CopyToAsync(fileStream);
+
+                await Console.Out.WriteLineAsync($"File Downloaded at {imageFilePath}");
+                return true;
+            }
+            catch (Exception downloadException)
+            {
+                Console.WriteLine(downloadException.Message);
+                return false;
+            }
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace BingWallpaper.Models
 {
-	public class BingWall
-	{
-		[JsonPropertyName("images")]
-		public List<BingImageInfo>? BingImages { get; set; }
-	}
+    public sealed class BingWall
+    {
+        [JsonPropertyName("images")]
+        public List<BingImageInfo>? BingImages { get; set; }
+    }
 }

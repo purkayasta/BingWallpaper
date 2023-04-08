@@ -1,15 +1,8 @@
-﻿# Bing Wallpaper
+﻿# Bing Wallpaper API
 
-## Give it a star if you like the project. 👏 🌠 🌟
+## Give it a star on [github](https://github.com/purkayasta/BingWallpaper) if you like the project. 👏 🌠 🌟
 
 BingWallpaper API is for you to download bing daily wallpaper at ease.
-
-![Nuget](https://img.shields.io/nuget/v/BingWallpaper)
-![Nuget](https://img.shields.io/nuget/dt/BingWallpaper?style=plastic)
-![Nuget](https://img.shields.io/github/repo-size/purkayasta/BingWallpaper?style=social)
-![Nuget](https://img.shields.io/github/last-commit/purkayasta/BingWallpaper?style=flat-square)
-
-Download from [Nuget](https://www.nuget.org/packages/BingWallpaper/)
 
 ## Invoke:
 To Use this library your friend will be this interface ```IBingWallpaperService```.
@@ -37,7 +30,6 @@ foreach (var imageUrl in source)
 }
 ```
 
-
 ### Web App / API
 ```c#
 public Controller {
@@ -53,5 +45,8 @@ public Controller {
 
 }
 ```
+
+
+
 
 Made ❤ with C#.
