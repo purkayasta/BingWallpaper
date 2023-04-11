@@ -24,7 +24,7 @@ namespace BingWallpaper.Test.WebAPI.Controllers
 
             if (result.Any())
             {
-                _logger.LogDebug($"Wallpaper found: {result.Count}");
+                _logger.LogInformation($"Wallpaper found: {result.Count}");
                 return Ok(result);
             }
 
