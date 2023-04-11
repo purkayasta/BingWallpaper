@@ -9,10 +9,10 @@
 		<IsPackable>true</IsPackable>
 		<Title>BingWallpaper</Title>
 		<PackageId>BingWallpaper</PackageId>
-		<PackageVersion>1.1</PackageVersion>
+		<PackageVersion>1.2</PackageVersion>
+		<Authors>Pritom Purkayasta</Authors>
 		<PackageTags>bing wallpaper, daily wallpaper, bing-c#, dotnet</PackageTags>
 		<Description>a nicer version of download bing daily wallpaper.</Description>
-		<Authors>Pritom Purkayasta</Authors>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/purkayasta/BingWallpaper</RepositoryUrl>
 		<PackageProjectUrl>https://www.nuget.org/packages/BingWallpaper/</PackageProjectUrl>
