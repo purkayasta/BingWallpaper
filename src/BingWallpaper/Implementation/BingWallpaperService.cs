@@ -24,6 +24,8 @@ namespace BingWallpaper.Implementation
 
             foreach (var url in urls)
             {
+                if (string.IsNullOrEmpty(url)) continue;
+
                 var wallpaperSource = await _customHttpClient.GetFromJsonAsync<BingWall>(url);
 
                 if (wallpaperSource is not null && wallpaperSource.BingImages is not null && wallpaperSource.BingImages.Any())
@@ -42,6 +44,8 @@ namespace BingWallpaper.Implementation
 
             foreach (var url in urls)
             {
+                if (string.IsNullOrEmpty(url)) continue;
+
                 var wallpaperSource = _customHttpClient.GetFromJsonAsync<BingWall>(url).GetAwaiter().GetResult();
 
                 if (wallpaperSource is not null && wallpaperSource.BingImages is not null && wallpaperSource.BingImages.Any())
@@ -49,7 +53,6 @@ namespace BingWallpaper.Implementation
             }
 
             return bingImages;
-
         }
         private static void ValidateWallpaperSource(int downloadRequest, string? locale)
         {

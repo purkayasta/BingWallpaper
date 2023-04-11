@@ -6,7 +6,7 @@ Console.OutputEncoding = Encoding.Unicode;
 Console.WriteLine("Fetching Wallpaper 🌟");
 
 var bingWallpaper = BingWallpaperInstaller.CreateService();
-var source = await bingWallpaper!.GetDailyWallpaperInfoAsync(15);
+var source = bingWallpaper!.GetDailyWallpaperInfo(15);
 
 if (source == null || !source.Any())
 {
